@@ -13,8 +13,7 @@ const showCategoris = (catagoris) => {
     catagoris.forEach(catagory => {
         const li = document.createElement('li')
         li.innerHTML = `
-        <a>${catagory. category_name}</a>
-
+        <a  href="#">${catagory. category_name}</a>
         `
         newsItem.appendChild(li)
 
