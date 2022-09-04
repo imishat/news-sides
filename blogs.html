@@ -12,79 +12,96 @@
 </head>
 
 <body>
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+    <Section class="container text-bg-light text-white text-white">
+        <div class="accordion accordion-flush text-bg-light" id="accordionFlushExample">
+            <div class="accordion-item text-bg-primary text-white">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
               <P>
                   What Differnce between var, let, and const javaScript
               </P>
             </button>
-            </h2>
-            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
 
-                    <p> The var keyword declares a function-scoped or global variable. Function-scoped means that the variable is only available within the function it was declared in. Global variables are available throughout your entire code.</p>
-                    <p>2.let: The let keyword declares a block-scoped local variable.Block-scoped means that the variable is only available within the block it was declared in</p>
-                    <p> 3.const keyword declares a block-scoped.a variable that can't be reassigned Constants are also called “immutable variables”, but that's a bit of a misnomer since they are actually variables - just ones that can't be reassigned.</p>
+                        <p> The var keyword declares a function-scoped or global variable. Function-scoped means that the variable is only available within the function it was declared in. Global variables are available throughout your entire code.</p>
+                        <p>2.let: The let keyword declares a block-scoped local variable.Block-scoped means that the variable is only available within the block it was declared in</p>
+                        <p> 3.const keyword declares a block-scoped.a variable that can't be reassigned Constants are also called “immutable variables”, but that's a bit of a misnomer since they are actually variables - just ones that can't be reassigned.</p>
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            <div class="accordion-item text-bg-primary text-white">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
               <P>
                 What Differnce between arrow function and normal function
               </P>
             </button>
-            </h2>
-            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                    <P>
-                        1.Unlike regular functions, arrow functions do not have their own this. The value of this inside an arrow function remains the same throughout the lifecycle of the function and is always bound to the value of this in the closest non-arrow parent function
-                    </P>
-                    <p>
-                        2.Regular functions created using function declarations or expressions are constructible and callable. Since regular functions are constructible, they can be called using the new keyword. However, the arrow functions are only callable and not constructible,
-                        i.e arrow functions can never be used as constructor functions. Hence, they can never be invoked with the new keyword.
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <P>
+                            1.Unlike regular functions, arrow functions do not have their own this. The value of this inside an arrow function remains the same throughout the lifecycle of the function and is always bound to the value of this in the closest non-arrow parent function
+                        </P>
+                        <p>
+                            2.Regular functions created using function declarations or expressions are constructible and callable. Since regular functions are constructible, they can be called using the new keyword. However, the arrow functions are only callable and not constructible,
+                            i.e arrow functions can never be used as constructor functions. Hence, they can never be invoked with the new keyword.
 
 
 
-                    </p>
+                        </p>
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            <div class="accordion-item text-bg-primary text-white">
+                <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                     <P>
                         What Differnce between map foreach find fitter?
 
                     </P>
               
             </button>
-            </h2>
-            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                    <P>
-                        1. Map executes the same code on every element in an array and returns a new array with the updated elements.
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse text-bg-primary text-whit" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <P>
+                            1. Map executes the same code on every element in an array and returns a new array with the updated elements.
 
-                    </P>
-                    <P>2. ForEach is used to execute the same code on every element in an array but does not change the array and it returns undefined</P>
-                    <p>
-                        3.Filter checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.
+                        </P>
+                        <P>2. ForEach is used to execute the same code on every element in an array but does not change the array and it returns undefined</P>
+                        <p>
+                            3.Filter checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.
 
-                    </p>
-                    <p>
-                        3.find When you want to select a single element from an array.
+                        </p>
+                        <p>
+                            3.find When you want to select a single element from an array.
 
-                    </p>
+                        </p>
 
-                    .</div>
+                        .</div>
+
+                </div>
+                <div class="accordion-item text-white text-bg-primary    text-white mt-3">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        Why  we use tamplate string in javascript
+                      </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <P>
+                                1. Template literals provide an easy way to interpolate variables and expressions into strings. The method is called string interpolation.
+
+                            </P>.</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </Section>
 
     <!--boostrap scprit-->
 
