@@ -8,12 +8,15 @@ const loadCategoris = async() => {
 }
 const showCategoris = (catagoris) => {
     console.log(catagoris)
+
+
     const newsItem = document.getElementById('news-item')
-    newsItem.classList.add('content')
+    newsItem.classList.add('d-flex')
     catagoris.forEach(catagory => {
         const li = document.createElement('li')
         li.innerHTML = `
-        <li onclick="loadNews('${catagory.category_id?catagory.category_id:"no data found"}')" >${catagory. category_name}</li>
+        <button onclick="loadNews('${catagory.category_id?catagory.category_id:"no data found"}')" >${catagory. category_name}</button>
+
         `
         newsItem.appendChild(li)
 
@@ -28,11 +31,12 @@ const loadNews = () => {
         .then(data => displayNews(data.data))
 }
 const displayNews = newsToday => {
-    const newsContainer = document.getElementById('news-box');
-    newsToday.forEach(news => {
-        const newsDiv = document.createElement('div');
-        newsDiv.classList.add('col')
-        newsDiv.innerHTML = `
+        togglespinner(true)
+        const newsContainer = document.getElementById('news-box');
+        newsToday.forEach(news => {
+            const newsDiv = document.createElement('div');
+            newsDiv.classList.add('col')
+            newsDiv.innerHTML = `
         <div class="card">
         <img src="${news.image_url}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -43,7 +47,7 @@ const displayNews = newsToday => {
             <div>
             <h3 class='m-3'>${news.author.name}</h3>
             <p class='m-3'>${news.author.published_date} </p>
-            <h3 class='m-3'>total_view:${news.total_view}</h3>
+            <h3 class='m-3'>totalview:${news.total_view?news.total_view:'no one seen'}</h3>
            </div>
 
             </div>
@@ -54,12 +58,31 @@ const displayNews = newsToday => {
         
     </div>
     `;
-        newsContainer.appendChild(newsDiv)
+            newsContainer.appendChild(newsDiv)
 
-    })
+        })
+        togglespinner(false);
 
 
+
+    }
+    //spinners srction
+const togglespinner = isLoasing => {
+    const loadingsection = document.getElementById('load-spinner')
+    if (isLoasing) {
+        loadingsection.classList.remove('d-none')
+    } else {
+        loadingsection.classList.add('d-none')
+    }
 }
+
+
+//modal section
+
+
+
+
+
 
 
 loadCategoris()
