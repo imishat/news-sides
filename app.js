@@ -19,7 +19,8 @@ const showCategoris = (catagoris) => {
         const li = document.createElement('div')
         li.innerHTML = `
  
-        <button onclick="loadNews()" >${catagory.category_name}</button>
+        <button onclick="loadNews()
+        " >${catagory.category_name}</button>
 
         `
         newsItem.appendChild(li)
@@ -30,50 +31,76 @@ const showCategoris = (catagoris) => {
 
 
 const loadNews = () => {
-    fetch(`https://openapi.programming-hero.com/api/news/category/01`)
+
+    const url = `https://openapi.programming-hero.com/api/news/category/01
+`;
+    fetch(url)
         .then(res => res.json())
-        .then(data => displayNews(data.data))
-        .catch(error => console.log(error))
+        .then(data => displayNews(data.data));
 
 
 }
-const displayNews = newsToday => {
-        togglespinner(true)
-        const newsContainer = document.getElementById('news-box');
-        newsToday.forEach(news => {
-            const newsDiv = document.createElement('div');
-            newsDiv.classList.add('col')
-            newsDiv.innerHTML = `
-        <div class="card">
-        <img src="${news.image_url}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">${news.title}</h5>
-            <p class="card-text">${news.details.slice(0, 150) + '...'}</p>
-            <div class='d-flex m-2'>
-            <img src="${news.author.img}" class='img-fluid img-width-25 w-50 h-100 my-auto rounded-circle' alt="">
-            <div>
-            <h3 class='m-3'>${news.author.name}</h3>
-            <p class='m-3'>${news.author.published_date} </p>
-            <h3 class='m-3'>totalview:${news.total_view?news.total_view:'no one seen'}</h3>
-           </div>
+const displayNews = (newsToday) => {
 
+    togglespinner(true)
+    const newsContainer = document.getElementById('news-box');
+
+    newsToday.forEach(news => {
+
+
+        const newsDiv = document.createElement('div');
+        newsDiv.className = "card mb-3 bg-white p-4 mx-auto";
+        newsDiv.innerHTML = `
+        <div class="row g-0">
+            <div class="col-md-2">
+                <img src="${news.thumbnail_url}" class="img-fluid rounded-start w-100" alt="...">
+            </div>
+            <div class="col-md-10 container-fluid">
+                <div class="card-body d-flex flex-column h-100 justify-content-between">
+                    <h5 class="card-title">${news.title}</h5>
+                    <p class="card-text">${news.details.length > 400 ? news.details.slice(0, 200) + '...' : news.details}</p>
+                    
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex gap-2 align-items-center">
+                            <img  style="width: 40px; height: 40px; border-radius: 50%;" src="${news.author.img}" alt="">
+                            <p class="mt-2">${news.author.name ? news.author.name : "No Author Name Found"}</p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <p><i class="fa-regular fa-eye"></i></p>
+                            <p>${news.total_view ? news.total_view : 'no view'}</p>
+                        </div>
+                        
+                        </div>
+        
+        
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetalis" onclick='buttonModal("${news._id}")'>Details</button>
+
+        
+    
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
         </div>
-        
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetalis" onclick='buttonModal("${news._id}")'>Details</button>
 
-        
-    </div>
-    `;
-            newsContainer.appendChild(newsDiv)
-
-        })
-        togglespinner(false);
+        `;
+        newsContainer.appendChild(newsDiv);
+    })
 
 
 
-    }
-    //spinners srction
+
+    togglespinner(false)
+
+}
+
+
+
+
+
+
+//spinners srction
 const togglespinner = isLoasing => {
     const loadingsection = document.getElementById('load-spinner')
     if (isLoasing) {
@@ -86,11 +113,13 @@ const togglespinner = isLoasing => {
 
 //modal section
 
-function buttonModal(news_id) {
-    // console.log(id)
-    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+const buttonModal = (newsId) => {
+
+    const url = `https:openapi.programming-hero.com/api/news/${newsId}`;
     fetch(url)
-        .then(res => res.json())
+
+
+    .then(res => res.json())
         .then(data => displayModal(data.data))
 
     .catch(error => console.log(error))
@@ -98,7 +127,8 @@ function buttonModal(news_id) {
 }
 
 
-function displayModal(modaldetalis) {
+const displayModal = (modaldetalis) => {
+    console.log(modaldetalis)
 
     const modalField = document.getElementById('newsDetalis')
     modalField.innerHTML = '';
@@ -131,6 +161,7 @@ function displayModal(modaldetalis) {
     })
 
 }
+
 
 
 
